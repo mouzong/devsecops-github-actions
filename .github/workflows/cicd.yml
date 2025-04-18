@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Trivy instalation
       run: |
-        sudo apt-get install wget gnupg
+        sudo apt-get install -y wget gnupg apt-transport-https gnupg lsb-release
         wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
         echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
         sudo apt-get update -y
