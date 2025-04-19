@@ -115,5 +115,9 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
+          context: .
           push: true
           tags: fryker/bankapp:latest
+          file: ./Dockerfile
+          build-contexts: |
+            app=./app
